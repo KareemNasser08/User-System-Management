@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Patrick+Hand&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 700
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 300 to 700
+
+.fredoka {
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    // font-weight: <weight>;
+    font-style: normal;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 1 to 1000
+
+.ysabeau-infant {
+    font-family: "Ysabeau Infant", sans-serif;
+    // font-optical-sizing: auto;
+    // font-weight: <weight>;
+    // font-style: normal;
+}
+
+.patrick-hand-regular {
+    font-family: "Patrick Hand", cursive;
+    // font-weight: 400;
+    // font-style: normal;
+}
+
+
+:root {
+    --mainColorSystem: #F2EAE1;
+    --secondaryColorSystem: #FEAF00;
+}
+
+body {
+    font-family: "Fredoka", sans-serif;
+}

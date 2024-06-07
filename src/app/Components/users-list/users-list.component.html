@@ -1,0 +1,76 @@
+<section class="vh-100 overflow-auto">
+    <div class="titleHeader d-flex align-items-center justify-content-between border-2 border-bottom p-2">
+        <h4>Users List</h4>
+        <button class="btn btn-warning text-uppercase text-white">ADD NEW User</button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <nav class="me-2">
+            <div class="d-flex align-items-center justify-content-center text-muted">
+                <span class="form-control rounded-0 border-0 fw-semibold text-end">Records Limit</span>
+                <input type="number" class="form-control" [(ngModel)]="recordsLimit" (ngModelChange)="updateLimit($event)">
+            </div>
+        </nav>
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <button class="page-link btn btn-primary rounded-0" [disabled]="currentPage ===1"
+                        (click)="previousPageButton()">
+                        <i class="fa-solid fa-circle-left me-2"></i> Previous
+                    </button>
+                </li>
+                <li class="page-link text-muted">
+                    {{recordsLimit}} Record - Page No. {{currentPage}} of {{numberOfPages}}
+                </li>
+                <li class="page-item">
+                    <button class="page-link btn btn-primary rounded-0" (click)="nextPageButton()"
+                        [disabled]="currentPage===numberOfPages">
+                        Next
+                        <i class="fa-solid fa-circle-right ms-2"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="search">
+        <div class="input-group mb-3 shadow">
+            <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+            <input type="text" [(ngModel)]="searchKey" class="form-control p-2" placeholder="Search by name">
+            <span class="input-group-text bg-success text-white">Search</span>
+        </div>
+    </div>
+    <div class="mt-3">
+        <table class="table table-sm table-striped">
+            <thead class="">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Birth Date</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of paginatedItems | searchKey:searchKey" class="rounded-4 bg-body-secondary">
+                    <th><img class="w-25 h-25 rounded-5" [src]="user.image"></th>
+                    <td>{{user.firstName}} {{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.birthDate}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning me-1" [routerLink]="['/main/edit-user', user.id]">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
+                        <button class="btn btn-sm btn-warning ms-1" (click)="deleteUser(user.id)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

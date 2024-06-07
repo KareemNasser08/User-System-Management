@@ -1,0 +1,17 @@
+aside {
+    background-color: var(--mainColorSystem);
+
+    img {
+        height: 135px;
+        width: 128px;
+    }
+
+
+    .nav-link {
+        border-radius: 5px;
+    }
+
+    .activeNavLink {
+        background-color: var(--secondaryColorSystem);
+    }
+}

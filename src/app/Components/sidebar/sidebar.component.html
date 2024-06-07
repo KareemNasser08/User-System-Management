@@ -1,0 +1,43 @@
+<aside>
+    <div class="d-flex flex-column flex-shrink-1 p-3 vh-100">
+        <a class="text-decoration-none text-black ms-3 ps-2 border-4 border-start border-warning fw-bold fs-5">UMS</a>
+
+        <div class="d-flex flex-column justify-content-center align-items-center p-2 my-2">
+            <img [src]="imageUrl" alt="" class="rounded-circle ">
+            <strong class="fs-5 text-black p-0 m-0">{{userName}}</strong>
+            <small class="text-warning p-0 m-0 fw-semibold">Admin</small>
+        </div>
+        <ul class="nav flex-column h-100">
+            <li class="nav-item">
+                <a class="nav-link text-black" routerLink="home" routerLinkActive="activeNavLink">
+                    <i class="fa-solid fa-house me-2"></i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-black" routerLink="users-list" routerLinkActive="activeNavLink">
+                    <i class="fa-solid fa-list me-2"></i>
+                    Users List
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-black" routerLink="add-user" routerLinkActive="activeNavLink">
+                    <i class="fa-solid fa-user-plus me-2"></i>
+                    Add User
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-black" routerLink="profile" routerLinkActive="activeNavLink">
+                    <i class="fa-solid fa-user me-2"></i>
+                    Profile
+                </a>
+            </li>
+        </ul>
+        <hr>
+
+        <div class="d-flex align-items-center">
+            <button class="btn text-black fs-5" (click)="onSignOut()" role="button">Sign out <i class="fa-solid fa-sign-out ms-2"></i></button>
+        </div>
+
+    </div>
+</aside>

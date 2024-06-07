@@ -1,0 +1,93 @@
+<section class="bg-body-tertiary">
+    <div class="titleHeader d-flex align-items-center justify-content-between border-2 border-bottom p-2">
+        <h4>{{pageId?'Edit':'Add'}} User</h4>
+    </div>
+
+    <div class="container">
+        <div class="card p-5 rounded-4 shadow-sm mt-3">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">First Name</label>
+                            <input formControlName="firstName" type="text" class="form-control">
+                            <div class="alert alert-danger"
+                                *ngIf="userForm.get('firstName')?.errors && userForm.get('firstName')?.touched">
+
+                                <p *ngIf="userForm.get('firstName')?.errors?.['required']">First Name is required</p>
+                                <p *ngIf="userForm.get('firstName')?.errors?.['minlength']">min characters 3</p>
+                                <p *ngIf="userForm.get('firstName')?.errors?.['maxlength']">max characters 20</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Last Name</label>
+                            <input formControlName="lastName" type="text" class="form-control">
+                            <div class="alert alert-danger"
+                                *ngIf="userForm.get('lastName')?.errors && userForm.get('lastName')?.touched">
+
+                                <p *ngIf="userForm.get('lastName')?.errors?.['required']">Last Name is required</p>
+                                <p *ngIf="userForm.get('lastName')?.errors?.['minlength']">min characters 3</p>
+                                <p *ngIf="userForm.get('lastName')?.errors?.['maxlength']">max characters 20</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Email</label>
+                            <input formControlName="email" type="email" class="form-control">
+
+                            <div class="alert alert-danger"
+                                *ngIf="userForm.get('email')?.errors && userForm.get('email')?.touched">
+
+                                <p *ngIf="userForm.get('email')?.errors?.['required']">Email is required</p>
+                                <p *ngIf="userForm.get('email')?.errors?.['email']">Email not valid</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Age</label>
+                            <input formControlName="age" type="number" class="form-control">
+                            <div class="alert alert-danger"
+                                *ngIf="userForm.get('age')?.errors && userForm.get('age')?.touched">
+
+                                <p *ngIf="userForm.get('age')?.errors?.['required']">Age is required</p>
+                                <p *ngIf="userForm.get('age')?.errors?.['min']">Min age is 16</p>
+                                <p *ngIf="userForm.get('age')?.errors?.['max']">Min age is 60</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Phone Number</label>
+                            <input formControlName="phone" type="tel" class="form-control">
+
+                            <div class="alert alert-danger"
+                                *ngIf="userForm.get('phone')?.errors && userForm.get('phone')?.touched">
+
+                                <p *ngIf="userForm.get('phone')?.errors?.['required']">Phone Number is required</p>
+                                <p *ngIf="userForm.get('phone')?.errors?.['pattern']">Phone Number is not vaild</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Birth Date</label>
+                            <input formControlName="birthDate" type="text" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mx-auto">
+                        <button [disabled]="userForm.invalid" class="btn btn-warning text-white w-100">Save </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

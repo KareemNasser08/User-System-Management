@@ -1,0 +1,49 @@
+<section class="signIn vh-100 d-flex align-items-center justify-content-center">
+    <div class="container-fluid m-0">
+        <div class="mx-auto shadow bg-white p-5 rounded-3">
+            <form [formGroup]="signInForm" (ngSubmit)="onLogIn(signInForm)">
+                <h3 class="mb-3 d-flex justify-content-center w-100">
+                    <span class="border-start border-5 border-warning py-1 ps-2 ysabeau-infant fw-bold">
+                        User Management System
+                    </span>
+                </h3>
+
+                <p class="mb-2 d-flex flex-column align-items-center justify-content-center">
+                    <span class="fs-4 fw-semibold">SIGN IN</span>
+                    <span class="text-muted">Enter your credentials to access your account.</span>
+                </p>
+
+                <div class="alert alert-danger" role="alert" *ngIf="errorInvalid">
+                    {{errorInvalid}}
+                </div>
+
+                <div class="my-3">
+                    <div class="form-floating position-relative">
+                        <input type="text" class="form-control rounded-bottom-0" formControlName="username"
+                            placeholder="Username">
+                        <label>Username</label>
+                        <i class="fa-solid fa-user fs-6 position-absolute"></i>
+                    </div>
+                    <div class="form-floating">
+                        <input [type]="isHide?'password':'text'" class="form-control rounded-top-0"
+                            formControlName="password" placeholder="Password">
+                        <label>Password</label>
+                        <i class="fa-solid fs-6 position-absolute" role="button"
+                            [ngClass]="isHide ? 'fa-eye-slash': 'fa-eye'" (click)="isHideFn()"></i>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around">
+                    <div class="w-50 me-1">
+                        <button class="btn btn-warning w-100 py-2">Sign in</button>
+                    </div>
+                    <div class="w-50 ms-1">
+                        <button class="btn btn-warning w-100 py-2" role="button">Cancel</button>
+                    </div>
+                </div>
+                <p class="my-3 text-body-secondary ysabeau-infant">&copy; 2024 kareemNASSER</p>
+            </form>
+        </div>
+    </div>
+
+</section>
