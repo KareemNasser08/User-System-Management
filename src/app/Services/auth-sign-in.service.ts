@@ -11,6 +11,6 @@ export class AuthSignInService {
   constructor(private _HttpClient: HttpClient) { }
 
   onSignIn(data: FormGroup): Observable<any> {
-    return this._HttpClient.post('https://dummyjson.com/auth/login', data)
+    return this._HttpClient.post('auth/login', data)
   }
 }

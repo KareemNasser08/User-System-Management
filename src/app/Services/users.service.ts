@@ -12,18 +12,22 @@ export class UsersService {
   constructor(private _HttpClient: HttpClient) { }
 
   getAllUsers(limit: number): Observable<any> {
-    return this._HttpClient.get(`https://dummyjson.com/users?limit=${limit}`);
+    return this._HttpClient.get(`users?limit=${limit}`);
   }
   getUserById(id: number): Observable<any> {
-    return this._HttpClient.get(`https://dummyjson.com/users/${id}`);
+    return this._HttpClient.get(`users/${id}`);
   }
   onAddUser(data: User): Observable<any> {
-    return this._HttpClient.post(`https://dummyjson.com/users/add`, data);
+    return this._HttpClient.post(`users/add`, data);
   }
   onEditUser(data: User, id: number): Observable<any> {
-    return this._HttpClient.put(`https://dummyjson.com/users/${id}`, data);
+    return this._HttpClient.put(`users/${id}`, data);
   }
   onDeleteUser(id: number): Observable<any> {
-    return this._HttpClient.delete(`https://dummyjson.com/users/${id}`);
+    return this._HttpClient.delete(`users/${id}`);
+  }
+
+  getCurrentUser(): Observable<any> {
+    return this._HttpClient.get('user/me');
   }
 }

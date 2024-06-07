@@ -9,3 +9,70 @@
     <input type="text" name="" id="" class="form-control" [(ngModel)]="nationalId | gender">
 
 -->
+<section class="bg-body-tertiary">
+    <div class="titleHeader d-flex align-items-center justify-content-between border-2 border-bottom p-2">
+        <h4>Welcome {{userInfo.firstName}} {{userInfo.lastName}}</h4>
+    </div>
+
+    <div class="container">
+        <div class="card p-5 rounded-4 shadow-sm mt-2">
+            <div
+                class="imageProfile rounded-circle border border-2 shadow mx-auto d-flex justify-content-center align-items-center">
+                <img [src]="userProfileImage" class="img-fluid">
+            </div>
+            <form class="mt-1">
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">First Name</label>
+                            <input formControlName="firstName" type="text" class="form-control"
+                                [value]="userInfo.firstName">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Last Name</label>
+                            <input formControlName="lastName" type="text" class="form-control"
+                                [value]="userInfo.lastName">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Email</label>
+                            <input formControlName="email" type="email" class="form-control" [value]="userInfo.email">
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Age</label>
+                            <input formControlName="age" type="number" class="form-control" [value]="userInfo.age">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Phone Number</label>
+                            <input formControlName="phone" type="tel" class="form-control" [value]="userInfo.phone">
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="">Birth Date</label>
+                            <input formControlName="birthDate" type="text" class="form-control"
+                                [value]="userInfo.birthDate">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

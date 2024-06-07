@@ -10,7 +10,7 @@ import { AddUserComponent } from './Components/add-user/add-user.component';
 import { UsersListComponent } from './Components/users-list/users-list.component';
 import { HomeComponent } from './Components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { GenderPipe } from './Pipes/gender.pipe';
@@ -18,6 +18,7 @@ import { SearchKeyPipe } from './Pipes/search-key.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { GlobalAuthInterceptor } from './Interceptors/global-auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProfileComponent,
     GenderPipe,
     SearchKeyPipe,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -42,11 +43,15 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
-      progressBar:true,
-      closeButton:true
+      progressBar: true,
+      closeButton: true
     }), // ToastrModule added
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: GlobalAuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
